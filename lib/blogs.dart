@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:subspace/modals/blog_modal.dart';
 
 class Blogs {
+
   List<BlogModel> blogs = [];
 
   void fetchBlogs() async {

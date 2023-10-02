@@ -1,4 +1,4 @@
-class BlogModel {
+class BlogModel{
 
    String imageUrl;
    String title;
