@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'home.dart';
+import 'package:subspace/home.dart';
 
 void main() {
   runApp(const MyApp());
