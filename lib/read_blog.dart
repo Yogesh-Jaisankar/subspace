@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:subspace/blog_modal.dart';
@@ -44,17 +45,27 @@ class _ReadBlogState extends State<ReadBlog> {
     });
   }
 
+  void showBookmarkSnackbar() {
+    final message = isBookmarked ? 'Bookmarked' : 'Bookmark removed';
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 2), // Adjust the duration as needed
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: HexColor("0F1E23"),
       appBar: AppBar(
-        surfaceTintColor: Colors.black,
+        surfaceTintColor: HexColor("0F1E23"),
         centerTitle: true,
         leading: const BackButton(
           color: Colors.white, // <-- SEE HERE
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: HexColor("0F1E23"),
         title: RichText(
             text: TextSpan(children: [
           TextSpan(
@@ -93,6 +104,9 @@ class _ReadBlogState extends State<ReadBlog> {
 
                   // Save the bookmarked state to SharedPreferences with the unique key
                   _prefs?.setBool(_bookmarkKey, isBookmarked);
+
+                  // Show the bookmark Snackbar
+                  showBookmarkSnackbar();
                 },
               )),
             ),

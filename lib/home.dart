@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:lottie/lottie.dart';
 import 'package:subspace/blog_modal.dart';
 import 'package:subspace/bloglist_tile.dart';
 import 'package:subspace/blogs.dart';
@@ -24,11 +26,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: HexColor("0F1E23"),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.black,
-        surfaceTintColor: Colors.black,
+        backgroundColor: HexColor("0F1E23"),
+        surfaceTintColor: HexColor("0F1E23"),
         title: RichText(
             text: TextSpan(children: [
           TextSpan(
@@ -104,9 +106,7 @@ class _HomeState extends State<Home> {
             );
           }
           return Center(
-            child: CircularProgressIndicator(
-              color: Colors.teal,
-            ),
+            child: Lottie.asset("assets/lottie/loading.json"),
           );
         },
       ),
